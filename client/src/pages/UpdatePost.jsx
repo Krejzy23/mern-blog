@@ -181,7 +181,10 @@ export default function UpdatePost() {
           className='h-72 mb-12'
           required
           onChange={(value) => {
-            setFormData({ ...formData, content: value });
+            setFormData({ 
+              ...formData, 
+              content: value ,
+            });
           }}
         />
         <Button type='submit' gradientDuoTone='purpleToPink'>
