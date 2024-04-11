@@ -39,7 +39,7 @@ export default function PostPage() {
   useEffect(() => {
     try {
       const fetchRecentPosts = async () => {
-        const res = await fetch(`/api/post/getposts?limit=5`);
+        const res = await fetch(`/api/post/getposts?limit=3`);
         const data = await res.json();
         if (res.ok) {
           setRecentPosts(data.posts);
@@ -94,7 +94,7 @@ export default function PostPage() {
         <h1 className='text-xl mt-5'>Recent articles</h1>
         <div className='flex flex-wrap gap-5 mt-5 justify-center'>
           {recentPosts &&
-            recentPosts.map((post) => <PostCard key={post._id} post={post} />)}
+            recentPosts.map((post) => <PostCard key={ post._id } post={ post } />)}
         </div>
       </div>
     </main>
