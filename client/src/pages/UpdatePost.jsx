@@ -85,11 +85,6 @@ export default function UpdatePost() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!formData._id) {
-      setPublishError('Invalid post ID');
-      return;
-    }
     try {
       const res = await fetch(`/api/post/updatepost/${formData._id}/${currentUser._id}`, {
         method: 'PUT',
@@ -187,10 +182,7 @@ export default function UpdatePost() {
           className='h-72 mb-12'
           required
           onChange={(value) => {
-            setFormData({ 
-              ...formData, 
-              content: value
-            });
+            setFormData({ ...formData, content: value });
           }}
         />
         <Button type='submit' gradientDuoTone='purpleToPink'>
