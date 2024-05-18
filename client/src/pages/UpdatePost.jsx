@@ -132,6 +132,7 @@ export default function UpdatePost() {
             <option value='uncategorized'>Select a category</option>
             <option value='Movie'>Movie</option>
             <option value='Nature'>Nature</option>
+            <option value='Lifestyle'>Lifestyle</option>
             <option value='Cooking'>Cooking</option>
             <option value='History'>History</option>
             <option value='Mystery'>Mystery</option>

@@ -43,6 +43,7 @@ export default function CreatePost() {
         (error) => {
           setImageUploadError('Image upload failed');
           setImageUploadProgress(null);
+          isRejected(error)
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
@@ -82,6 +83,7 @@ export default function CreatePost() {
       setPublishError('Something went wrong');
     }
   };
+  
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
       <h1 className='text-center text-3xl my-7 font-semibold'>Create a post</h1>
@@ -105,6 +107,7 @@ export default function CreatePost() {
             <option value='uncategorized'>Select a category</option>
             <option value='Movie'>Movie</option>
             <option value='Nature'>Nature</option>
+            <option value='Lifestyle'>Lifestyle</option>
             <option value='Cooking'>Cooking</option>
             <option value='History'>History</option>
             <option value='Mystery'>Mystery</option>
