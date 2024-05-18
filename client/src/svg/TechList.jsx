@@ -4,6 +4,7 @@ import { MdCircle } from "react-icons/md";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const TechList = () => {
@@ -14,7 +15,6 @@ const TechList = () => {
         // create as many GSAP animations and/or ScrollTriggers here as you want...
         const tl = gsap.timeline({
           scrollTrigger: {
-            pin: true, // pin the trigger element while active
             start: "top bottom",
             end: "bottom top",
             scrub: 8,
@@ -45,13 +45,13 @@ const TechList = () => {
   
     return (
       <section
-        className="wrapper overflow-hidden"
+        className="wrapper overflow-hidden z-10"
         ref={component}
       >
         {category.map((item, index) => (
           <div
             key={index}
-            className="tech-row mb-3 flex items-center justify-center gap-3 text-slate-500"
+            className="tech-row mt-10 mb-3 flex items-center justify-center gap-3 text-slate-500"
           >
             {Array.from({ length: 15 }, (_, innerIndex) => (
               <React.Fragment key={innerIndex}>

@@ -1,37 +1,29 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-const PhoenixAnimation = () => {
+const AnimatedPhoenix = () => {
   const phoenixRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const vP = gsap.utils.selector(phoenixRef);
     const tl = gsap.timeline();
 
-    // Initial animation
-    tl.to(vP("path"), {
-      duration: 1.2,
-      stagger: {
-        each: 0.02,
-        cycle: {
-          fill: ["white", "gray", "black"],
-          opacity: [0.1, 0.3, 0.6, 0.1],
-        },
-      },
-      ease: "rough({template: none, strength: 1, points: 20, taper: none, randomize: true, clamp: false})",
+    tl.set(vP("path"), {
+      fill: "gray",
+      opacity: 0.2
     });
 
-    // Secondary animation
-    tl.to(vP("path"), {
-      duration: 1.2,
+    // Initial animation to gather pieces
+    tl.from(vP("path"), {
+      duration: 1.5,
       stagger: {
-        each: 0.03,
+        each: 0.05,
+        from: "end", // Start the animation from the end to give a sense of assembling
         cycle: {
-          y: [-500, -200, -300, -1000],
-          x: [200, -200, -700, 700],
-          rotation: function (i) {
-            return i * 5;
-          },
+          y: i => [500, 200, 300, 1000][i % 4], // Start positions offscreen
+          x: i => [-200, 200, 700, -700][i % 4],
+          rotation: i => i * 5,
         },
       },
       opacity: 0,
@@ -39,11 +31,25 @@ const PhoenixAnimation = () => {
       ease: "circ.inOut",
     });
 
+    tl.to(vP("path"), {
+      duration: 1.5,
+      stagger: {
+        each: 0.03,
+        from: "end",
+        cycle: {
+          fill: ["white", "gray", "black"],
+          opacity: [1, 0.6, 0.3, 1],
+        },
+      },
+      ease: "rough({template: none, strength: 1, points: 20, taper: none, randomize: false, clamp: true})",
+    });
+    // Secondary animation to finalize the assembly
+
     return () => tl.kill(); // Cleanup the timeline when component unmounts
   }, []);
 
   return (
-    <div className="container max-w-6xl w-full max-h-[70rem] h-full m-auto">
+    <div className="container max-w-12xl w-full max-h-[1rem] h-full m-auto z-20">
       <div ref={phoenixRef} className="w-4/5 max-w-5xl mx-auto h-4/5">
         <svg
           className="phoenix"
@@ -514,4 +520,4 @@ const PhoenixAnimation = () => {
   );
 };
 
-export default PhoenixAnimation;
+export default AnimatedPhoenix;

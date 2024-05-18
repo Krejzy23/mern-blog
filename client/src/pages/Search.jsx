@@ -35,21 +35,18 @@ export default function Search() {
 
     const fetchPosts = async () => {
       setLoading(true);
-      const searchQuery = urlParams.toString();
-      const res = await fetch(`/api/post/getposts?${searchQuery}`);
-      if (!res.ok) {
-        setLoading(false);
-        return;
-      }
-      if (res.ok) {
+      try {
+        const searchQuery = urlParams.toString();
+        const res = await fetch(`/api/post/getposts?${searchQuery}`);
+        if (!res.ok) throw new Error("Failed to fetch posts");
         const data = await res.json();
         setPosts(data.posts);
+        setShowMore(data.posts.length === 9);
+      } catch (error) {
+        console.log(error); // Log the error
+        setError(true); // Optionally set an error state to show an error message
+      } finally {
         setLoading(false);
-        if (data.posts.length === 9) {
-          setShowMore(true);
-        } else {
-          setShowMore(false);
-        }
       }
     };
     fetchPosts();
@@ -72,8 +69,8 @@ export default function Search() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams(location.search);
-    urlParams.set('searchTerm', sidebarData.searchTerm);
-    urlParams.set('sort', sidebarData.sort);
+    urlParams.set('searchTerm', sidebarData.searchTerm || '');
+    urlParams.set('sort', sidebarData.sort || 'desc');
     urlParams.set('category', sidebarData.category);
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
@@ -102,7 +99,7 @@ export default function Search() {
 
   return (
     <div className='flex flex-col md:flex-row'>
-      <div className='p-7 border-b md:border-r md:min-h-screen border-gray-500'>
+      <div className='p-7 border-b md:border-r md:min-h-screen border-stroke-1'>
         <form className='flex flex-col gap-8' onSubmit={handleSubmit}>
           <div className='flex   items-center gap-2'>
             <label className='whitespace-nowrap font-semibold'>
@@ -148,7 +145,7 @@ export default function Search() {
         </form>
       </div>
       <div className='w-full'>
-        <h1 className='text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5 '>
+        <h1 className='text-4xl font-semibold font-poppins sm:border-b border-stroke-1 p-3 mt-5 '>
           Posts results:
         </h1>
         <div className='p-7 flex flex-wrap gap-4'>
@@ -162,7 +159,7 @@ export default function Search() {
           {showMore && (
             <button
               onClick={handleShowMore}
-              className='text-teal-500 text-lg hover:underline p-7 w-full'
+              className='text-stroke-1 text-lg hover:underline p-7 w-full'
             >
               Show More
             </button>
