@@ -73,24 +73,24 @@ export default function Home() {
         crossesOffset
         customPaddings
       >
-        <div className="max-w-7xl mx-auto flex flex-col gap-8 py-7">
+        <div className="max-w-6xl mx-auto flex flex-col gap-8 py-7">
           <Tagline className="text-xl">Posts</Tagline>
           <AnimatedComponent />
           {posts && posts.length > 0 && (
             <div className="flex flex-col gap-6 ">
-              <div className="flex items-center justify-center z-50">
-                <h2 className="p-5 max-w-lg text-6xl tracking-wider font-poppins font-bold text-center text-transparent text-stroker-2 text-stroke-custom border-2 border-stroke-1">
+              <div className="relative z-40">
+                <h2 className="absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-[-50%] p-5 max-w-lg lg:text-6xl text-4xl tracking-wider font-poppins font-bold text-center text-transparent text-stroker-2 text-stroke-custom border-2 border-stroke-1 bg-white dark:bg-[rgb(16,23,42)] z-50">
                   Recent Posts
                 </h2>
               </div>
-              <div className="flex flex-wrap pt-24 gap-4 justify-center border-stroke-1 border-2">
+              <div className="flex flex-wrap pt-24 pb-24 gap-4 justify-center border-stroke-1 border-2">
                 {posts.map((post) => (
                   <PostCard key={post._id} post={post} />
                 ))}
               </div>
               <Link
                 to={"/search"}
-                className="text-2xl text-stroke-1 hover:underline text-center font-serif font-semibold"
+                className="relative bottom-0 left-1/2 transform -translate-x-1/2 translate-y-[-50%] p-5 text-2xl max-w-lg border-2 border-stroke-1 hover:underline text-center font-serif font-semibold bg-white dark:bg-[rgb(16,23,42)] z-50"
               >
                 View all posts
               </Link>
