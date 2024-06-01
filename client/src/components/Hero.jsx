@@ -10,19 +10,19 @@ export default function Hero() {
         <div className="relative flex items-center flex-col justify-center font-poppins z-10">
           <div className="flex flex-row items-center justify-center">
             <h1 className={styles.heroHeading}>WELC</h1>
-            <div className={`dark:border-white ${styles.heroOText}`} />
+            <div className={`dark:border-gray-200 ${styles.heroOText}`} />
             <h1 className={styles.heroHeading}>ME</h1>
           </div>
 
           <div className="flex flex-row items-center justify-center">
             <h1 className={styles.heroHeading}>T</h1>
-            <div className={`dark:border-white ${styles.heroOText}`}/>
+            <div className={`dark:border-gray-200 ${styles.heroOText}`}/>
             <h1 className={`ml-12 ${styles.heroHeading}`}>MY</h1>
           </div>
           
           <div className="flex flex-row items-center justify-center">
             <h1 className={styles.heroHeading}>BL</h1>
-            <div className={`dark:border-white ${styles.heroOText}`} />
+            <div className={`dark:border-gray-200 ${styles.heroOText}`} />
             <h1 className={styles.heroHeading}>G</h1>
           </div>
         </div>

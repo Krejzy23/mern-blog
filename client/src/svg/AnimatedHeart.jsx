@@ -36,8 +36,8 @@ const AnimatedLogo = () => {
     <div>
       <svg
         ref={pathsRef}
-        width="256px"
-        height="253px"
+        width="86px"
+        height="83px"
         viewBox="0 0 256 253"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid"

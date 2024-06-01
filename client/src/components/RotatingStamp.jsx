@@ -58,7 +58,7 @@ const RotatingTextCircle = ({ text }) => {
 
   return (
     <div ref={circleRef} className="w-[230px] h-[230px] flex items-center justify-center relative border-1 border-gray-400 font-semibold rounded-full">
-      {/* Vnitřní kruh zmrde*/}
+      {/* Vnitřní kruh zmrde */}
       <div className="absolute w-[170px] h-[170px] border-1 border-gray-400 rounded-full">
         <AnimatedHandDown />
       </div>

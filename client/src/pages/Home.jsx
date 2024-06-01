@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import PostCard from "../components/PostCard";
 import TechList from "../svg/TechList";
 import Hero from "../components/Hero";
@@ -12,6 +12,8 @@ import Tagline from "../components/Tagline";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { RingsWithText } from "../components/design/Hero";
+import ProgressBar from "../components/ProgressBar"
+import TextSlider from "../components/TextSlider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,13 +31,14 @@ export default function Home() {
     gsap.to(".posts-section", {
       scrollTrigger: {
         trigger: ".posts-section",
-        start: "top bottom", // Spustí, když horní část sekce dosáhne spodní části viewportu
+        start: "top bottom",
         end: "bottom top",
         scrub: true,
-        markers: true, // Nastavte na true pro ladění
+        markers: true,
       },
-      y: () => -document.querySelector(".tech-list-section").offsetHeight, // Posun nahoru o výšku sekce TechList
+      y: () => -document.querySelector(".tech-list-section").offsetHeight,
     });
+
   }, []);
 
   return (
@@ -90,7 +93,7 @@ export default function Home() {
               </div>
               <Link
                 to={"/search"}
-                className="relative bottom-0 left-1/2 transform -translate-x-1/2 translate-y-[-50%] p-5 text-2xl max-w-lg border-2 border-stroke-1 hover:underline text-center font-serif font-semibold bg-white dark:bg-[rgb(16,23,42)] z-50"
+                className="relative bottom-0 left-1/2 transform -translate-x-1/2 translate-y-[-50%] p-5 max-w-lg border-2 border-stroke-1 text-stroke-1 font-semibold font-poppins bg-white dark:bg-[rgb(16,23,42)] hover:bg-stroke-1 hover:text-white duration-300 text-center text-2xl z-50"
               >
                 View all posts
               </Link>
@@ -114,6 +117,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
+      <ProgressBar text={"Check my work! Contact Me!"}/>
     </div>
   );
 }

@@ -1,25 +1,40 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { useRef } from "react";
+
+gsap.registerPlugin(useGSAP,ScrollTrigger);
 
 const AnimatedUmbrella = () => {
   const umbrella = useRef(null);
 
   useGSAP(() => {
     gsap.to(umbrella.current, {
-      rotation: "+=360",
-      duration: 5,
+      rotation: 720,
+      duration: 1,
       repeat: -1,
       ease: "none",
+      marker:true,
+      scrollTrigger: {
+        trigger: umbrella.current,
+        scrub: true,  // Použije rychlost skrolování pro kontrolu rychlosti animace
+        start: "left right",  // Start animace, když SVG vstoupí do viewportu
+        end: "right left",  // Konec animace, když SVG opustí viewport
+        horizontal: true,
+        invalidateOnRefresh: true,
+      }
     });
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
     
   }, []);
 
   return (
     <div ref={umbrella}>
       <svg
-        width="80px"
-        height="80px"
+        width="60px"
+        height="60px"
         viewBox="0 0 300 300"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"

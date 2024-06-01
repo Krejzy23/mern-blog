@@ -25,8 +25,8 @@ const AnimatedStars = ({ color = '#FC2207' }) => {
   return (
     <div className="flex justify-end w-full h-full" ref={starRef}>
       <svg
-        width="128"
-        height="128"
+        width="96"
+        height="96"
         viewBox="0 0 34 34"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
