@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedHeart from "../svg/AnimatedHeart";
@@ -20,7 +20,8 @@ import { ANIM_DURATION, ANIM_EASE } from "../constants";
 import { animations } from "../constants";
 import Leaf from "../svg/AnimatedLeaf";
 
-gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, useGSAP );
 
 const MyComponent = () => {
   const containerRef = useRef(null);
@@ -32,7 +33,7 @@ const MyComponent = () => {
     <Leaf key={index} rotation={index * 45 } />
   ));
 
-  useEffect(() => {
+  useGSAP(() => {
     const sections = gsap.utils.toArray(containerRef.current.children);
     const mask = containerRef.current.querySelector(".mask");
     const tl = gsap.timeline({ repeat: -1, yoyo: true });

@@ -29,7 +29,6 @@ const Promo = () => {
               cryptocurrencies, and artificial intelligence. For lighter
               reading, you will find posts dedicated to nature, ecology, and a
               healthy lifestyle, always with a touch of irony and perspective.
-              Explore my BLOG and discover something new!
             </p>
           </div>
         </div>
