@@ -15,10 +15,10 @@ import AnimatedStars from "../svg/AnimatedStars";
 import Mark from "../svg/Mark";
 import { bioContent, bioIcons } from "../constants";
 import { lifeContent, lifeHackText } from "../constants";
-import { grid , bioBackground2 } from "../assets";
-
-
-
+import { healthyBackground, bioBackground2, grid } from "../assets";
+import { ANIM_DURATION, ANIM_EASE } from "../constants";
+import { animations } from "../constants";
+import Leaf from "../svg/AnimatedLeaf";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -27,6 +27,10 @@ const MyComponent = () => {
   const text = "CodingTips";
   const letters = text.split("");
   const textRef = useRef(null);
+
+  const leaves = Array.from({ length: 8 },(_,index) =>(
+    <Leaf key={index} rotation={index * 45 } />
+  ));
 
   useEffect(() => {
     const sections = gsap.utils.toArray(containerRef.current.children);
@@ -46,7 +50,7 @@ const MyComponent = () => {
     });
 
     // Animation for each section
-    sections.forEach((section, index) => {
+    sections.forEach((section) => {
       gsap.from(section.querySelectorAll(".anim"), {
         y: -120,
         opacity: 0,
@@ -54,13 +58,13 @@ const MyComponent = () => {
         ease: "elastic",
         stagger: 0.1,
         scrollTrigger: {
+          marker: true,
           trigger: section,
           start: "top center",
           containerAnimation: scrollTween,
         },
       });
     });
-
     // Mask animation
     gsap.to(mask, {
       width: "100%",
@@ -71,34 +75,18 @@ const MyComponent = () => {
       },
     });
 
-    tl.to(".span1", {
-      duration: 2,
-      rotation: 10,
-      transformOrigin: "bottom right",
-      ease: "sine.inOut",
+    animations.forEach((anim, index) => {
+      tl.to(
+        anim.selector,
+        {
+          duration: ANIM_DURATION,
+          rotation: anim.rotation,
+          transformOrigin: anim.transformOrigin,
+          ease: ANIM_EASE,
+        },
+        index === 0 ? undefined : "<"
+      );
     });
-
-    tl.to(
-      ".span2",
-      {
-        duration: 2,
-        rotation: -8,
-        transformOrigin: "top left",
-        ease: "sine.inOut",
-      },
-      "<"
-    );
-
-    tl.to(
-      ".span3",
-      {
-        duration: 2,
-        rotation: 12,
-        transformOrigin: "top left",
-        ease: "sine.inOut",
-      },
-      "<"
-    );
   }, []);
 
   return (
@@ -109,6 +97,7 @@ const MyComponent = () => {
           <section className="sec1 anim relative flex-row pin p-10">
             <div className="">
               <LeftLine />
+              <RightLine />
             </div>
             <div className="flex justify-center ml-20">
               <div className="flex justify-center items-center pt-36">
@@ -121,21 +110,20 @@ const MyComponent = () => {
                 <AnimatedStars color="#2A3240" />
               </div>
             </div>
-            <RightLine />
             <div className="flex-col p-5 ml-20">
               <AnimatedPath />
               <AnimatedPlane />
             </div>
           </section>
 
-          <section className="sec2 flex flex-col anim relative pin border-1 rounded-br-3xl !rounded-tl-3xl">
+          <section className="sec2 flex flex-col ml-20 mt-52 anim relative pin rounded-br-3xl !rounded-tl-3xl">
             <img 
               src={grid}
               alt="grid"
-              className="absolute inset-O w-full h-full"
+              className="absolute border-2 border-stroke-2 rounded-br-3xl !rounded-tl-3xl overflow-hidden inset-0 w-full h-full z-0"
             />
-            <div className="mt-28 w-[28rem]">
-              <div className="flex flex-row justify-center items-center gap-3 pb-20">
+            <div className="w-[48rem] h-[20rem] z-10">
+              <div className="flex flex-row justify-center items-center gap-3 mt-4 pb-2">
                 <h6 className="absolute top-5 left-5 h6 text-xs font-poppins text-stroke-2">
                   Healthy
                 </h6>
@@ -148,14 +136,19 @@ const MyComponent = () => {
                   Contributions
                 </h6>
               </div>
-              <div className="p-10">
+              <div className="p-5 flex flex-row ">
                 <ul className="flex flex-col">
                   {lifeContent.map((item) => (
-                    <li key={item.id} className="mb-2 ml-1 border-b-1 border-n-3">
+                    <li
+                      key={item.id}
+                      className="mb-2 ml-1 border-b-1 border-n-3"
+                    >
                       <div className="flex">
-                        <h6 className="h6 items-center font-semibold body-1">{item.title}</h6>
+                        <h6 className="h6 items-center font-semibold body-1">
+                          {item.title}
+                        </h6>
                       </div>
-                      {item.text &&(
+                      {item.text && (
                         <p className="body-2 font-poppins text-n-3">
                           {item.text}
                         </p>
@@ -167,7 +160,15 @@ const MyComponent = () => {
                       )}
                     </li>
                   ))}
+                  <div className="flex justify-center items-center">
+                    {leaves}
+                  </div>
                 </ul>
+                <img
+                  src={healthyBackground}
+                  alt="healthy"
+                  className="w-[300px] h-[300px] object-cover mt-[30px] rounded-br-3xl border-2 border-stroke-2 z-0"
+                />
               </div>
             </div>
           </section>
@@ -176,16 +177,22 @@ const MyComponent = () => {
             <div className="flex flex-col items-center p-5 relative z-10">
               <h2 className="flex items-center h2 font-poppins text-gray-700 font-bold mb-4">
                 Bi
-                <div className="mx-2">
+                <div className="flex justify-center items-center mx-2">
                   <AnimatedUmbrella />
                 </div>
                 Genetics
               </h2>
               <ul className="flex-col ml-96">
-                {bioIcons.map((icon)=>(
+                {bioIcons.map((icon) => (
                   <li key={icon.id}>
-                    <img src={icon.src} alt={`icon-${icon.id}`} className="w-[60px] h-[60px]"/>
-                    <p className="flex items-center justify-center body-2 text-gray-700">{icon.text}</p>
+                    <img
+                      src={icon.src}
+                      alt={`icon-${icon.id}`}
+                      className="w-[60px] h-[60px]"
+                    />
+                    <p className="flex items-center justify-center body-2 text-gray-700">
+                      {icon.text}
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -208,10 +215,10 @@ const MyComponent = () => {
                 ))}
               </ul>
             </div>
-            <img 
-                src={bioBackground2}
-                alt="dna"
-                className="absolute inset-0 w-full h-full opacity-30"
+            <img
+              src={bioBackground2}
+              alt="dna"
+              className="absolute inset-0 w-full h-full opacity-30"
             />
           </section>
 

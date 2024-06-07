@@ -13,6 +13,7 @@ const AnimatedStars = ({ color = '#FC2207' }) => {
       rotation: 720,  // Rotace o 360 stupňů
       duration: 1,
       ease: "none",
+      transformOrigin: "center center",
       scrollTrigger: {
         trigger: starRef.current,
         scrub: true,  // Použije rychlost skrolování pro kontrolu rychlosti animace

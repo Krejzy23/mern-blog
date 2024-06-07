@@ -1,37 +1,36 @@
-import { useGSAP } from "@gsap/react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import React, { useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(useGSAP,ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedUmbrella = () => {
   const umbrella = useRef(null);
 
-  useGSAP(() => {
+  useEffect(() => {
     gsap.to(umbrella.current, {
       rotation: 720,
       duration: 1,
-      repeat: -1,
       ease: "none",
-      marker:true,
+      transformOrigin: "center center",
       scrollTrigger: {
         trigger: umbrella.current,
-        scrub: true,  // Použije rychlost skrolování pro kontrolu rychlosti animace
-        start: "left right",  // Start animace, když SVG vstoupí do viewportu
-        end: "right left",  // Konec animace, když SVG opustí viewport
-        horizontal: true,
+        scrub: true,
+        start: "left right", // Start animace, když SVG vstoupí do viewportu z pravé strany
+        end: "right left",   // Konec animace, když SVG opustí viewport vlevo
         invalidateOnRefresh: true,
+        horizontal: true,
       }
     });
+
+    // Cleanup on component unmount
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-    
   }, []);
 
   return (
-    <div ref={umbrella}>
+    <div className="flex justify-center items-center" style={{ display: "block", margin: "auto" }}>
       <svg
         width="60px"
         height="60px"

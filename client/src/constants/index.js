@@ -1,5 +1,5 @@
-import { gradient1 } from "../assets";
-import { bioIcon1, bioIcon2, bioIcon3, bioIcon4 } from "../assets";
+import { clerkIcon, gsapIcon, nextIcon, reactIcon, tailIcon, threeIcon, tsIcon } from "../assets";
+import { bioIcon1, bioIcon2, bioIcon3, bioIcon4,p1,p2,p3,p4 } from "../assets";
 
 export const category = [
   {
@@ -104,9 +104,68 @@ export const lifeContent = [
     text: lifeTextNote,
   },
 ];
+
 export const bioIcons = [
   { id: "1", src: bioIcon1, text: "Morphing" },
   { id: "2", src: bioIcon2, text: "Science" },
   { id: "3", src: bioIcon3, text: "Code" },
   { id: "4", src: bioIcon4, text: "Virus" },
 ];
+
+// ANIMACE VAULT BOY
+
+export const ANIM_DURATION = 2;
+export const ANIM_EASE = "sine.inOut";
+export const animations = [
+  {
+    selector: ".span1",
+    rotation: 10,
+    transformOrigin: "bottom right",
+  },
+  {
+    selector: ".span2",
+    rotation: -8,
+    transformOrigin: "top left",
+  },
+  {
+    selector: ".span3",
+    rotation: 12,
+    transformOrigin: "top left",
+  },
+];
+
+export const projects = [
+  {
+    id: 1,
+    title: "AI Image SaaS - Canva Application" ,
+    text: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack." ,
+    img: p1,
+    iconLists: [reactIcon, tailIcon, tsIcon, threeIcon, clerkIcon],
+    link: "https://image-ai-nu.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "Animated Apple Iphone 3D Website" ,
+    text: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
+    img: p2,
+    iconLists: [nextIcon, tailIcon, tsIcon, threeIcon, gsapIcon],
+    link: "https://i-phone15-pro.vercel.app/",
+  },
+  {
+    id: 3,
+    title: "3D animated portfolio" ,
+    text: "Beautiful profesional developer portolio with Three.js animations",
+    img: p3,
+    iconLists: [reactIcon ,tailIcon, threeIcon],
+    link: "https://developer-portfolio-green.vercel.app/",
+  },
+  {
+    id: 4,
+    title: "Event application" ,
+    text: "The events application on Next.js 14 manages and showcases global events, with Stripe integration for ticket purchases and event management.",
+    img: p4,
+    iconLists: [nextIcon, tailIcon, tsIcon,clerkIcon],
+    link: "https://events-platform-mu.vercel.app/",
+  },
+
+]
