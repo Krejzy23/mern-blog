@@ -1,28 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-gsap.registerPlugin(MotionPathPlugin);
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+
 
 const AnimatedLines = () => {
   const pathRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(pathRef.current, 
+    gsap.fromTo(
+      pathRef.current,
       { strokeDashoffset: 1185.67, strokeDasharray: 1185.67 },
       {
         strokeDashoffset: 0,
         duration: 0.5,
         ease: "power1.inOut",
-        visibility: "visible"
-      });
+        visibility: "visible",
+      }
+    );
   }, []);
 
   return (
     <div className="absolute -mt-20 top-0 left-0 w-full h-full flex justify-center items-center pointer-events-none z-50">
-      <svg 
+      <svg
         viewBox=" 0 0 441.31 249.44"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ width: '70%', height: 'auto' }}
+        style={{ width: "70%", height: "auto" }}
       >
         <path
           ref={pathRef}
@@ -31,10 +32,10 @@ const AnimatedLines = () => {
           stroke="#ff3b00"
           strokeMiterlimit="10"
           strokeWidth="12"
-          style={{visibility: 'hidden'}}
+          style={{ visibility: "hidden" }}
         ></path>
       </svg>
     </div>
   );
 };
-export default AnimatedLines
+export default AnimatedLines;
