@@ -154,7 +154,7 @@ export const projects = [
   {
     id: 3,
     title: "3D animated portfolio" ,
-    text: "Beautiful profesional developer portolio with Three.js animations",
+    text: "Beautiful profesional developer 3D portolio with Three.js animations",
     img: p3,
     iconLists: [reactIcon ,tailIcon, threeIcon],
     link: "https://developer-portfolio-green.vercel.app/",
