@@ -1,9 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Leaf = ({ rotation }) => {
   const leafRef = useRef(null);
@@ -21,9 +18,6 @@ const Leaf = ({ rotation }) => {
         end: "bottom+=600 top"    // Konec animace, když SVG opustí viewport
       }
     });
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
   }, []);
 
   return (

@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedHeart from "../svg/AnimatedHeart";
 import Tagline from "./Tagline";
 import AnimatedUmbrella from "../svg/AnimatedUmbrella";
@@ -20,7 +19,6 @@ import { animations } from "../constants";
 import Leaf from "../svg/AnimatedLeaf";
 
 
-gsap.registerPlugin(ScrollTrigger);
 
 const MyComponent = () => {
   const containerRef = useRef(null);

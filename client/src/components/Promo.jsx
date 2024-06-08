@@ -2,7 +2,7 @@ import React from "react";
 import Tagline from "./Tagline";
 import AnimatedArrowDown from "../svg/AnimatedArrowDown";
 import gsap from "gsap";
-import { Draggable } from "gsap/Draggable";
+import { Draggable } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(Draggable);

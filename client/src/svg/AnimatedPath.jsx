@@ -1,9 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedPath = () => {
   const path1Ref = useRef(null);
@@ -27,10 +25,7 @@ const AnimatedPath = () => {
       path2Ref.current,
       { strokeDashoffset: 0, duration: 1 },
       "+=0.7"
-    ); // Starts at the same time as the first path animation
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+    );
   }, []);
 
   return (

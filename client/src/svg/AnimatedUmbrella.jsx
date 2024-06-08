@@ -1,9 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef} from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedUmbrella = () => {
   const umbrella = useRef(null);
@@ -25,9 +22,6 @@ const AnimatedUmbrella = () => {
     });
 
     // Cleanup on component unmount
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
   }, []);
 
   return (

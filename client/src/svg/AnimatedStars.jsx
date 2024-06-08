@@ -1,9 +1,6 @@
 import React, { useRef } from "react";
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedStars = ({ color = '#FC2207' }) => {
   const starRef = useRef(null);
@@ -21,9 +18,6 @@ const AnimatedStars = ({ color = '#FC2207' }) => {
         end: "bottom top"    // Konec animace, když SVG opustí viewport
       }
     });
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
   }, []);
 
   return (

@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { category } from '../constants';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
 
@@ -30,15 +29,14 @@ const App = () => {
         );
       }
     });
-  }, [ScrollTrigger]);
+  }, []);
 
   return (
     <div>
       <div className="w-full flex flex-wrap justify-center items-center mt-10">
         {category.map((cat, index) => (
           <div ref={el => elementRefs.current[index] = el} key={cat.id} className="m-1">
-            <div className="w-[100px] h-[100px] border-2 relative rounded-full flex items-center justify-center font-serif font-semibold"
-                 style={{ borderColor: cat.color, color: cat.color }}>
+            <div className="w-[100px] h-[100px] border-2 relative rounded-full flex items-center justify-center font-serif font-semibold" style={{ borderColor: cat.color, color: cat.color }}>
               <p className='text-xl'>{cat.title}</p>
             </div>
           </div>

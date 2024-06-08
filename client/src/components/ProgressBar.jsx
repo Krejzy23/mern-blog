@@ -1,9 +1,7 @@
 import React, { useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const ProgressBar = ({ text }) => {
   const radius = 70; // Poloměr kružnice
@@ -42,11 +40,6 @@ const ProgressBar = ({ text }) => {
         scrub: true,
       }
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      gsap.killTweensOf(circleRef.current);
-    };
   }, []);
 
   return (

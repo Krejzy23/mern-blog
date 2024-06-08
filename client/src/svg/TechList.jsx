@@ -2,11 +2,7 @@ import React, { useRef } from "react";
 import { category } from "../constants";
 import { MdCircle } from "react-icons/md";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
-
-gsap.registerPlugin(ScrollTrigger);
 
 const TechList = () => {
     const component = useRef(null);
