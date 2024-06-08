@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin( ScrollTrigger);
 
@@ -12,7 +13,7 @@ const TextSlider = () => {
   const slidesLength = 2; // Number of slides (0 indexed)
   const timerDuration = 5000;
 
-  useEffect(() => {
+  useGSAP(() => {
     initSvg();
     let timer = setInterval(resetSlide, timerDuration);
 

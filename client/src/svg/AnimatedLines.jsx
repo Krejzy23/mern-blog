@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 
 const AnimatedLines = () => {
   const pathRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.fromTo(
       pathRef.current,
       { strokeDashoffset: 1185.67, strokeDasharray: 1185.67 },

@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Tagline from "./Tagline";
 import AnimatedArrowDown from "../svg/AnimatedArrowDown";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(Draggable);
 
 const Promo = () => {
-  useEffect(() => {
+  useGSAP(() => {
     Draggable.create(".draggable-svg", {
       type: "x,y",
       bounds: ".draggable"

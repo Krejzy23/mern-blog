@@ -1,6 +1,7 @@
 import PlusSvg from "../../svg/PlusSvg";
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { gsap } from 'gsap';
+import { useGSAP } from "@gsap/react";
 
 export const BottomLine = () => {
   return (
@@ -18,7 +19,7 @@ export const RingsWithText = () => {
   const ringsRef = useRef([]);
   const texts = ["WEBDEVELOPMENT", "DESIGN", "MERN", "APP", "SEO", ""];
 
-  useEffect(() => {
+  useGSAP(() => {
     ringsRef.current.forEach((ring, index) => {
       if(ringsRef){
         gsap.fromTo(ring, 

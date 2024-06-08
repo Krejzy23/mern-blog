@@ -1,13 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedUmbrella = () => {
   const umbrella = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.to(umbrella.current, {
       rotation: 720,
       duration: 1,

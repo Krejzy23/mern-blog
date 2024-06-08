@@ -1,13 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Leaf = ({ rotation }) => {
   const leafRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.to(leafRef.current, {
       rotation: `+=720`,  // Rotace o 360 stupňů
       duration: 1,

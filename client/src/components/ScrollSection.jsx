@@ -6,7 +6,6 @@ import Tagline from "./Tagline";
 import AnimatedUmbrella from "../svg/AnimatedUmbrella";
 import { RightLine, LeftLine } from "../components/design/MiniMap";
 import { useGSAP } from "@gsap/react";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import AnimatedPlane from "../svg/AnimatedPlane";
 import VaultBoy from "../svg/VaultBoy";
 import { RightCurve, LeftCurve } from "./design/ScrollSection";
@@ -21,7 +20,7 @@ import { animations } from "../constants";
 import Leaf from "../svg/AnimatedLeaf";
 
 
-gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, useGSAP );
+gsap.registerPlugin(ScrollTrigger);
 
 const MyComponent = () => {
   const containerRef = useRef(null);

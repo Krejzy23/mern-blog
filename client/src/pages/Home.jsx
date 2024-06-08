@@ -13,7 +13,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { RingsWithText } from "../components/design/Hero";
 import ProgressBar from "../components/ProgressBar"
-import TextSlider from "../components/TextSlider";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,7 +26,7 @@ export default function Home() {
       setPosts(data.posts);
     };
     fetchPosts();
-
+  
     gsap.to(".posts-section", {
       scrollTrigger: {
         trigger: ".posts-section",

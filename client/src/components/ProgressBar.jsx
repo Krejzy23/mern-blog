@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +12,7 @@ const ProgressBar = ({ text }) => {
   const progressBarMaskRef = useRef(null);
   const progressTextRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     // Logika pro progress bar
     gsap.to(progressBarMaskRef.current, {
       scrollTrigger: {
@@ -46,7 +47,7 @@ const ProgressBar = ({ text }) => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       gsap.killTweensOf(circleRef.current);
     };
-  }, [text]);
+  }, []);
 
   return (
     <div className="fixed bottom-10 right-10 w-32 h-32 z-50 flex items-center justify-center">

@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import AnimatedHandDown from '../svg/AnimatedHandDown';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,7 +11,7 @@ const RotatingTextCircle = ({ text }) => {
   const angleIncrement = (2 * Math.PI) / text.length; // Úhel mezi znaky
   const circleRef = useRef(null); // Ref pro celý kruh
 
-  useEffect(() => {
+  useGSAP(() => {
     // Define a ScrollTrigger timeline for both rotating and bouncing animations
     const tl = gsap.timeline({
       scrollTrigger: {

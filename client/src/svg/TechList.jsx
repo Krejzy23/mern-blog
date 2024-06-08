@@ -1,8 +1,9 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { category } from "../constants";
 import { MdCircle } from "react-icons/md";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const TechList = () => {
     const component = useRef(null);
   
-    useLayoutEffect(() => {
+    useGSAP(() => {
       let ctx = gsap.context(() => {
         // create as many GSAP animations and/or ScrollTriggers here as you want...
         const tl = gsap.timeline({

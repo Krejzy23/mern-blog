@@ -1,7 +1,6 @@
 import React from "react";
 import { projects } from "../constants";
 import { bgProjects } from "../assets";
-import Section from "../components/Section";
 
 const Projects = () => {
   return (

@@ -4,8 +4,6 @@ import { category } from '../constants';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(useGSAP);
-
 
 const App = () => {
   const elementRefs = useRef([]);
