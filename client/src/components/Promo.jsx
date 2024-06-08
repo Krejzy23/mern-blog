@@ -2,19 +2,10 @@ import React from "react";
 import Tagline from "./Tagline";
 import AnimatedArrowDown from "../svg/AnimatedArrowDown";
 import gsap from "gsap";
-import { Draggable } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(Draggable);
 
 const Promo = () => {
-  useGSAP(() => {
-    Draggable.create(".draggable-svg", {
-      type: "x,y",
-      bounds: ".draggable"
-    });
-  }, []);
-
   return (
     <div className="max-w-[77.5rem] mx-auto px-5 md:px-10 lg:px-16 xl:max-w-[87.5rem]">
       <div className="flex">
