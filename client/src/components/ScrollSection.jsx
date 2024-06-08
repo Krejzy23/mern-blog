@@ -18,8 +18,6 @@ import { ANIM_DURATION, ANIM_EASE } from "../constants";
 import { animations } from "../constants";
 import Leaf from "../svg/AnimatedLeaf";
 
-
-
 const MyComponent = () => {
   const containerRef = useRef(null);
   const text = "CodingTips";
