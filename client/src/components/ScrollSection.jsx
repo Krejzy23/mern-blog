@@ -237,7 +237,7 @@ const MyComponent = () => {
           </section>
         </div>
 
-        <div className="flex ml-[22rem] mb-[15rem] w-[200px]">
+        <div className="hidden md:flex justify-center items-center mb-[15rem] w-[200px] ml-96 md:ml-48">
           <div className="relative">
             <RightCurve />
             <span className="span1 absolute p-3 -ml-24 -mt-8 text-center text-white text-4xl font-thin rounded-tl-2xl bg-gradient-to-r from-blue-600 via-purple-500 to-pink-400 shadow-lg">

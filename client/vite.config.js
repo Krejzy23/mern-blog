@@ -13,6 +13,6 @@ export default defineConfig({
   },
   plugins: [react()],
   build: {
-    outDir: 'public', // Nastavení výstupního adresáře na 'public'
+    outDir: 'client/public', // Nastavení výstupního adresáře na 'public'
   },
 });

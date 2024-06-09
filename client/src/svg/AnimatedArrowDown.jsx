@@ -18,10 +18,6 @@ const AnimatedArrowDown = () => {
         y: "-=25", // posun nahoru o 25px
       });
 
-      // Funkce pro čištění při odstranění komponenty
-      return () => {
-        tl.kill();
-      };
     }
   }, []);
 
