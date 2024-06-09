@@ -85,7 +85,7 @@ export default function Home() {
                   Recent Posts
                 </h2>
               </div>
-              <div className="flex flex-wrap pt-24 pb-24 gap-4 justify-center border-stroke-1 border-2">
+              <div className="flex flex-wrap pt-24 pb-24 gap-4 justify-center p-5 border-stroke-1 border-2">
                 {posts.map((post) => (
                   <PostCard key={post._id} post={post} />
                 ))}

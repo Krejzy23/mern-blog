@@ -5,6 +5,7 @@ import AnimatedLines from '../svg/AnimatedLines';
 
 export default function PostCard({ post }) {
   const [showLines, setShowLines] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   const getButtonColor = () => {
     if (!post) return 'defaultColor';
@@ -13,7 +14,17 @@ export default function PostCard({ post }) {
   };
 
   return (
-    <div className='group relative w-full border-2 border-stroke-1 hover:border-4 h-[400px] overflow-hidden rounded-lg sm:w-[460px] transition-all'>
+    <div
+      className='group relative w-full border-2 border-stroke-1 hover:border-4 h-[400px] overflow-hidden rounded-lg sm:w-[460px] transition-all'
+      onMouseEnter={() => {
+        setShowLines(true);
+        setShowButton(true);
+      }}
+      onMouseLeave={() => {
+        setShowLines(false);
+        setShowButton(false);
+      }}
+    >
       <Link to={`/post/${post.slug}`}>
         <img
           src={post.image}
@@ -24,14 +35,14 @@ export default function PostCard({ post }) {
       <div className='flex flex-col gap-2'>
         <p className='text-xl ml-2 font-semibold line-clamp-2'>{post.title}</p>
         <span className='custom-category ml-2' style={{ borderColor: getButtonColor() }}>{post.category}</span>
-        <Link
-          to={`/post/${post.slug}`}
-          className='z-10 group-hover:bottom-0 absolute bottom-[-200px] left-0 right-0 border border-stroke-1 text-stroke-1 hover:bg-stroke-1 hover:text-white transition-all duration-300 font-serif text-center text-2xl py-2 rounded-md !rounded-tl-none m-3'
-          onMouseEnter={() => setShowLines(true)}
-          onMouseLeave={() => setShowLines(false)}
-        >
-          Read Article
-        </Link>
+        {showButton && (
+          <Link
+            to={`/post/${post.slug}`}
+            className='z-10 absolute bottom-0 left-0 right-0 border-2 border-stroke-1 text-stroke-1 hover:bg-stroke-1 hover:text-white transition-all duration-300 font-serif text-center text-2xl py-2 rounded-md !rounded-tl-none m-3'
+          >
+            Read Article
+          </Link>
+        )}
       </div>
       {showLines && <AnimatedLines />}
     </div>

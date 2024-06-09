@@ -43,7 +43,7 @@ const ProgressBar = ({ text }) => {
   }, []);
 
   return (
-    <div className="fixed bottom-16 right-16 lg:bottom-16 lg:right-16 md:bottom-16 md:right-16 sm:bottom-16 sm:right-16 w-32 h-32 z-50 flex items-center justify-center">
+    <div className="fixed hidden bottom-16 right-16 lg:bottom-16 lg:right-16 md:bottom-16 md:right-16 sm:bottom-16 sm:right-16 w-32 h-32 z-50 md:flex items-center justify-center">
       <div className="relative w-full h-full">
         <svg className="w-full h-full transform rotate-180" viewBox="0 0 100 100">
           <defs>

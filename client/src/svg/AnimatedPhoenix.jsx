@@ -44,8 +44,6 @@ const AnimatedPhoenix = () => {
       ease: "rough({template: none, strength: 1, points: 20, taper: none, randomize: false, clamp: true})",
     });
     // Secondary animation to finalize the assembly
-
-    return () => tl.kill(); // Cleanup the timeline when component unmounts
   }, []);
 
   return (

@@ -32,7 +32,7 @@ const AnimatedLines = () => {
           fill="none"
           stroke="#ff3b00"
           strokeMiterlimit="10"
-          strokeWidth="12"
+          strokeWidth="8"
           style={{ visibility: "hidden" }}
         ></path>
       </svg>

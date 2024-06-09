@@ -81,7 +81,7 @@ export const lifeText =
 export const lifeHackText =
   "When you reach a new level of mind, you can look forward to initiation into an elite group where you can express your views freely and non-violently.";
 export const lifeTextNote =
-  "Free orange vest, handkerchiefss and a epoxy resin are in bio quality!";
+  "Free orange vest, handkerchiefss and a epoxy resin are biodegradable in nature!";
 
 export const lifeContent = [
   {

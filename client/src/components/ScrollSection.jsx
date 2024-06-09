@@ -24,7 +24,7 @@ const MyComponent = () => {
   const letters = text.split("");
   const textRef = useRef(null);
 
-  const leaves = Array.from({ length: 8 },(_,index) =>(
+  const leaves = Array.from({ length: 7 },(_,index) =>(
     <Leaf key={index} rotation={index * 45 } />
   ));
 
@@ -132,8 +132,8 @@ const MyComponent = () => {
                   Contributions
                 </h6>
               </div>
-              <div className="p-5 flex flex-row ">
-                <ul className="flex flex-col">
+              <div className="p-5 flex flex-row">
+                <ul className="flex flex-col max-w-md">
                   {lifeContent.map((item) => (
                     <li
                       key={item.id}
@@ -163,7 +163,7 @@ const MyComponent = () => {
                 <img
                   src={healthyBackground}
                   alt="healthy"
-                  className="w-[300px] h-[300px] object-cover mt-[30px] rounded-br-3xl border-2 border-stroke-2 z-0"
+                  className="w-[300px] h-[300px] object-cover  mt-[30px] rounded-br-3xl border-2 border-stroke-2 z-0"
                 />
               </div>
             </div>

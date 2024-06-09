@@ -14,8 +14,8 @@ const AnimatedUmbrella = () => {
       scrollTrigger: {
         trigger: umbrella.current,
         scrub: true,
-        start: "left right", // Start animace, když SVG vstoupí do viewportu z pravé strany
-        end: "right left",   // Konec animace, když SVG opustí viewport vlevo
+        start: "top bottom", // Start animace, když SVG vstoupí do viewportu z pravé strany
+        end: "bottom top",   // Konec animace, když SVG opustí viewport vlevo
         invalidateOnRefresh: true,
         horizontal: true,
       }
