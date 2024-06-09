@@ -169,7 +169,7 @@ const MyComponent = () => {
             </div>
           </section>
 
-          <section className="sec3 -ml-80 anim flex flex-col border-1 border-stroke-1 relative bg-white">
+          <section className="sec3 -ml-80 mt-10 anim flex flex-col border-1 border-stroke-1 relative bg-white">
             <div className="flex flex-col items-center p-5 relative z-10">
               <h2 className="flex items-center h2 font-poppins text-gray-700 font-bold mb-4">
                 Bi

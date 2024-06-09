@@ -13,8 +13,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { RingsWithText } from "../components/design/Hero";
 import ProgressBar from "../components/ProgressBar"
+import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger,useGSAP);
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -26,7 +27,11 @@ export default function Home() {
       setPosts(data.posts);
     };
     fetchPosts();
+    
+    
+  },[]);
   
+  useGSAP(() => {
     gsap.to(".posts-section", {
       scrollTrigger: {
         trigger: ".posts-section",
@@ -37,8 +42,7 @@ export default function Home() {
       },
       y: () => -document.querySelector(".tech-list-section").offsetHeight,
     });
-
-  }, []);
+  },[]);
 
   return (
     <div>
@@ -81,11 +85,11 @@ export default function Home() {
           {posts && posts.length > 0 && (
             <div className="flex flex-col gap-6 ">
               <div className="relative z-40">
-                <h2 className="absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-[-50%] p-5 max-w-lg lg:text-6xl text-4xl tracking-wider font-poppins font-bold text-center text-transparent text-stroker-2 text-stroke-custom border-2 border-stroke-1 bg-white dark:bg-[rgb(16,23,42)] z-50">
+                <h2 className="absolute h2 top-0 left-1/2 transform -translate-x-1/2 translate-y-[-50%] p-5 max-w-lg lg:text-6xl text-4xl tracking-wider font-semibold font-poppins text-center text-transparent text-stroker-1 text-stroke-custom border-1 border-stroke-1 bg-white dark:bg-[rgb(16,23,42)] z-50">
                   Recent Posts
                 </h2>
               </div>
-              <div className="flex flex-wrap pt-24 pb-24 gap-4 justify-center p-5 border-stroke-1 border-2">
+              <div className="flex flex-wrap pt-24 pb-24 gap-4 justify-center p-5 border-stroke-1 border-1">
                 {posts.map((post) => (
                   <PostCard key={post._id} post={post} />
                 ))}

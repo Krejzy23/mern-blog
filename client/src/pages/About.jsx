@@ -12,7 +12,7 @@ export default function About() {
           <TextSlider />
         </div>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center">
-          <h1 className="mt-20 font-bold text-4xl tracking-wider font-serif">
+          <h1 className="text-transparent text-stroker-1 text-stroke-custom mt-20 font-semibold text-4xl tracking-wider font-poppins">
             About Me
           </h1>
           <p className="font-semibold px-3">

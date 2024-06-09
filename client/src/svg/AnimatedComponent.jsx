@@ -36,8 +36,8 @@ const App = () => {
       <div className="w-full flex flex-wrap justify-center items-center mt-10">
         {category.map((cat, index) => (
           <div ref={el => elementRefs.current[index] = el} key={cat.id} className="m-1">
-            <div className="w-[100px] h-[100px] border-2 relative rounded-full flex items-center justify-center font-serif font-semibold" style={{ borderColor: cat.color, color: cat.color }}>
-              <p className='text-xl'>{cat.title}</p>
+            <div className="w-[80px] h-[80px] lg:w-[100px] lg:h-[100px] border-1 relative rounded-full flex items-center justify-center font-poppins font-light" style={{ borderColor: cat.color, color: cat.color }}>
+              <p className='text-sm lg:text-xl'>{cat.title}</p>
             </div>
           </div>
         ))}
