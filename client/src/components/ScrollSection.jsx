@@ -163,13 +163,13 @@ const MyComponent = () => {
                 <img
                   src={healthyBackground}
                   alt="healthy"
-                  className="w-[300px] h-[300px] object-cover  mt-[30px] rounded-br-3xl border-2 border-stroke-2 z-0"
+                  className="w-[300px] h-[300px] object-cover mt-[30px] rounded-br-3xl border-2 border-stroke-2 z-0"
                 />
               </div>
             </div>
           </section>
 
-          <section className="sec3 anim flex flex-col items-center w-full h-full border-1 border-stroke-1 relative bg-white">
+          <section className="sec3 -ml-80 anim flex flex-col border-1 border-stroke-1 relative bg-white">
             <div className="flex flex-col items-center p-5 relative z-10">
               <h2 className="flex items-center h2 font-poppins text-gray-700 font-bold mb-4">
                 Bi
