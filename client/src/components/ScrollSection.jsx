@@ -54,7 +54,6 @@ const MyComponent = () => {
         ease: "elastic",
         stagger: 0.1,
         scrollTrigger: {
-          marker: true,
           trigger: section,
           start: "top center",
           containerAnimation: scrollTween,
@@ -95,18 +94,18 @@ const MyComponent = () => {
               <LeftLine />
               <RightLine />
             </div>
-            <div className="flex justify-center ml-20">
-              <div className="flex justify-center items-center pt-36">
+            <div className="flex justify-center">
+              <div className="flex justify-center items-center pt-32">
                 <AnimatedStars />
               </div>
               <h1 className="h1 flex mt-10 font-serif font-bold">
                 BLOG POSTS CATEGORIES
               </h1>
-              <div className="flex justify-center items-center pt-24 rotate-180">
+              <div className="flex justify-center items-center -ml-6 pt-10 rotate-180">
                 <AnimatedStars color="#2A3240" />
               </div>
             </div>
-            <div className="flex-col p-5 ml-20">
+            <div className="flex-col p-5">
               <AnimatedPath />
               <AnimatedPlane />
             </div>
@@ -132,7 +131,7 @@ const MyComponent = () => {
                   Contributions
                 </h6>
               </div>
-              <div className="p-5 flex flex-row">
+              <div className="p-1 flex flex-row">
                 <ul className="flex flex-col max-w-md">
                   {lifeContent.map((item) => (
                     <li
@@ -169,7 +168,7 @@ const MyComponent = () => {
             </div>
           </section>
 
-          <section className="sec3 -ml-80 mt-10 anim flex flex-col border-1 border-stroke-1 relative bg-white">
+          <section className="sec3 -ml-50 mt-10 anim flex flex-col border-1 border-stroke-1 relative bg-white">
             <div className="flex flex-col items-center p-5 relative z-10">
               <h2 className="flex items-center h2 font-poppins text-gray-700 font-bold mb-4">
                 Bi
