@@ -47,7 +47,7 @@ const AnimatedPhoenix = () => {
   }, []);
 
   return (
-    <div className="container max-w-12xl w-full max-h-[1rem] h-full m-auto z-20">
+    <div className="container max-w-7xl w-full max-h-[1rem] h-full m-auto z-20">
       <div ref={phoenixRef} className="w-4/5 max-w-5xl mx-auto h-4/5">
         <svg
           className="phoenix"
