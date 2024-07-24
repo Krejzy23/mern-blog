@@ -80,7 +80,7 @@ export default function Home() {
         customPaddings
       >
         <div className="max-w-6xl mx-auto flex flex-col gap-8 py-7">
-          <Tagline className="text-xl">Posts</Tagline>
+          <Tagline className="text-xl">#Posts</Tagline>
           <AnimatedComponent />
           {posts && posts.length > 0 && (
             <div className="flex flex-col gap-6 ">

@@ -13,7 +13,7 @@ const Projects = () => {
     >
       <div className="relative max-w-[77.5rem] md:px-10 lg:px-16 xl:max-w-[87.5rem] flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
         <div className="py-20 max-w-7xl w-full">
-        <Tagline className="text-xl">MY PROJECTS</Tagline>
+        <Tagline className="text-xl">#MY PROJECTS</Tagline>
           <h1 className="h1 body-1 font-poppins mt-20 ml-20">
             A small selection of my{" "}
             <h1 className="flex h1 justify-center items-center font-semibold text-stroke-1 font-poppins text-transparent text-stroker-1 text-stroke-custom">Recent projects</h1>

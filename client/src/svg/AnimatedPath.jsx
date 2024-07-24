@@ -31,10 +31,8 @@ const AnimatedPath = () => {
   return (
     <div>
       <svg
-        className="svg-arrow"
+        className=""
         xmlns="http://www.w3.org/2000/svg"
-        width="556"
-        height="291"
         viewBox="0 0 556.3 291.38"
       >
         <path
@@ -48,7 +46,7 @@ const AnimatedPath = () => {
         />
         <path
           ref={path2Ref}
-          className="linePath-arrow"
+          className=""
           d="M540.95,267.14l9.75-19.95-21.17-7.09"
           fill="none"
           stroke="#ff3b00"

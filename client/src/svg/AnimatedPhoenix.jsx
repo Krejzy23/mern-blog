@@ -16,7 +16,7 @@ const AnimatedPhoenix = () => {
 
     // Initial animation to gather pieces
     tl.from(vP("path"), {
-      duration: 1.5,
+      duration: 1,
       stagger: {
         each: 0.05,
         from: "end", // Start the animation from the end to give a sense of assembling
@@ -32,7 +32,7 @@ const AnimatedPhoenix = () => {
     });
 
     tl.to(vP("path"), {
-      duration: 1.5,
+      duration: 1,
       stagger: {
         each: 0.03,
         from: "end",
@@ -43,7 +43,7 @@ const AnimatedPhoenix = () => {
       },
       ease: "rough({template: none, strength: 1, points: 20, taper: none, randomize: false, clamp: true})",
     });
-    // Secondary animation to finalize the assembly
+
   }, []);
 
   return (

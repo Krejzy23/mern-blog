@@ -8,7 +8,7 @@ const Promo = () => {
     <div className="max-w-[77.5rem] mx-auto px-5 md:px-10 lg:px-16 xl:max-w-[87.5rem]">
       <div className="flex">
         <div className="flex flex-col">
-          <Tagline className="mt-20 text-xl">Welcome</Tagline>
+          <Tagline className="mt-20 text-xl">#Welcome</Tagline>
           <h1 className="h1 pl-10 mt-20 font-semibold font-poppins text-transparent text-2xl md:text-6xl text-stroker-1 text-stroke-custom">
             About Blog
           </h1>

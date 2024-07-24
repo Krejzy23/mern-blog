@@ -87,7 +87,7 @@ const MyComponent = () => {
   return (
     <div className="wrapper max-w-[77.5rem] overflow-x-hidden relative">
       <div className="px-5 md:px-10 lg:px-16 xl:max-w-[90rem]">
-        <Tagline className="mt-20">Explore Posts Theme</Tagline>
+        <Tagline className="mt-20">#Explore Posts</Tagline>
         <div className="scrollx flex w-[100vw]" ref={containerRef}>
           <section className="sec1 anim relative flex-row pin p-10">
             <div className="">

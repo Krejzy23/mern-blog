@@ -50,7 +50,7 @@ export default function Header() {
   };
 
   return (
-    <Navbar className='border-b-2 border-stroke-1'>
+    <Navbar className='border mx-10 rounded-xl border-stroke-1'>
       <Link 
         to="/" 
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
@@ -72,12 +72,12 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
-      <Button className='w-12 h-10 lg:hidden' color="gray" pill>
+      <Button className='w-12 h-10 hidden' color="gray" pill>
         <AiOutlineSearch />
       </Button>
       <div className='flex gap-2 md:order-2'>
         <Button 
-          className='w-12 h-10 hidden sm:inline' 
+          className='w-12 h-10 hidden md:inline' 
           color='gray' 
           pill 
           onClick={() => dispatch(toggleTheme())}
@@ -118,7 +118,7 @@ export default function Header() {
             ) 
             : (
               <Link to='/sign-in'>
-                <Button gradientDuoTone="purpleToBlue" outline>
+                <Button gradientDuoTone="pinkToOrange" outline>
                   Sign In
                 </Button>
               </Link>
