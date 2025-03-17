@@ -15,6 +15,9 @@ const Promo = () => {
           <p className="max-w-xl text-gray-400 sm:text-xl">
             Welcome to my blog, where you can enjoy your free time reading
             interesting articles on selected topics, mainly programming,
+            cryptocurrencies, and artificial intelligence. For lighter reading,
+            you will find posts dedicated to nature, ecology, and a healthy
+            lifestyle, always with a touch of irony and perspective.
           </p>
         </div>
         <div className="flex items-center justify-center ml-32">
